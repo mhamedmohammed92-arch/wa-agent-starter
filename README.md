@@ -41,7 +41,7 @@ You need [Docker](https://docs.docker.com/get-docker/) and a Meta developer
 account. Nothing else.
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/wa-agent-starter.git
+git clone https://github.com/mhamedmohammed92-arch/wa-agent-starter.git
 cd wa-agent-starter
 cp .env.example .env
 ```
