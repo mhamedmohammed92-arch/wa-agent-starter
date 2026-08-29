@@ -1,0 +1,105 @@
+{
+  "_comment": "Sample answer book. Replace every reply with your own business facts, keep the structure. 'weight' is optional (default 1.0) - keep greeting/thanks below 1 so a real question always wins. Phone numbers, prices and links are wrapped in LTR isolates automatically before sending.",
+
+  "fallback": {
+    "he": "לא הבנתי את השאלה 🙏\nאפשר לשאול על: שעות פעילות · כתובת · מחירים · משלוח.\nאו לכתוב \"נציג\" כדי לדבר עם אדם.",
+    "ar": "ما فهمت السؤال 🙏\nبتقدر تسأل عن: ساعات العمل · العنوان · الأسعار · التوصيل.\nأو اكتب \"موظف\" للحكي مع شخص.",
+    "en": "I didn't catch that 🙏\nYou can ask about: opening hours · address · prices · delivery.\nOr type \"agent\" to reach a person."
+  },
+
+  "intents": [
+    {
+      "id": "greeting",
+      "weight": 0.6,
+      "keywords": {
+        "he": ["שלום", "היי", "בוקר טוב", "ערב טוב", "מה נשמע"],
+        "ar": ["مرحبا", "اهلا", "السلام عليكم", "صباح الخير", "مساء الخير", "هلا", "كيفك"],
+        "en": ["hello", "hi", "hey", "good morning", "good evening"]
+      },
+      "reply": {
+        "he": "שלום! 👋 אני העוזר האוטומטי של העסק.\nאפשר לשאול אותי על שעות פעילות, כתובת, מחירים ומשלוחים.\nבמה אפשר לעזור?",
+        "ar": "أهلاً! 👋 أنا المساعد الآلي للمحل.\nاسألني عن ساعات العمل، العنوان، الأسعار والتوصيل.\nكيف بقدر أساعدك؟",
+        "en": "Hi! 👋 I'm the automated assistant.\nAsk me about opening hours, address, prices or delivery.\nHow can I help?"
+      }
+    },
+    {
+      "id": "hours",
+      "keywords": {
+        "he": ["שעות", "פתוח", "פתוחים", "סגור", "סגורים", "מתי אתם"],
+        "ar": ["ساعات", "الدوام", "مفتوح", "مفتوحين", "مسكر", "مغلق", "امتى بتفتحوا"],
+        "en": ["hours", "opening", "open", "closed", "when are you"]
+      },
+      "reply": {
+        "he": "שעות הפעילות שלנו:\nראשון–חמישי 09:00–18:00\nשישי 09:00–13:00\nשבת סגור",
+        "ar": "ساعات العمل:\nالأحد – الخميس 09:00–18:00\nالجمعة 09:00–13:00\nالسبت مغلق",
+        "en": "Opening hours:\nSunday–Thursday 09:00–18:00\nFriday 09:00–13:00\nSaturday closed"
+      }
+    },
+    {
+      "id": "location",
+      "keywords": {
+        "he": ["כתובת", "איפה אתם", "מיקום", "להגיע", "חניה", "ניווט"],
+        "ar": ["عنوان", "وين محلكم", "موقع", "كيف اوصل", "خريطة", "موقف سيارات"],
+        "en": ["address", "where are you", "location", "directions", "map", "parking"]
+      },
+      "reply": {
+        "he": "הכתובת שלנו: הרצל 12, חיפה.\nניווט: https://maps.google.com/?q=Herzl+12+Haifa",
+        "ar": "عنواننا: هرتسل 12، حيفا.\nللملاحة: https://maps.google.com/?q=Herzl+12+Haifa",
+        "en": "Our address: Herzl 12, Haifa.\nDirections: https://maps.google.com/?q=Herzl+12+Haifa"
+      }
+    },
+    {
+      "id": "pricing",
+      "keywords": {
+        "he": ["מחיר", "מחירון", "כמה עולה", "עלות", "תעריף"],
+        "ar": ["سعر", "اسعار", "بكم", "قديش", "تكلفة", "التسعيرة"],
+        "en": ["price", "prices", "cost", "how much", "rate"]
+      },
+      "reply": {
+        "he": "המחירים מתחילים ב-120 ₪.\nמחירון מלא: https://example.com/prices",
+        "ar": "الأسعار تبدأ من 120 ₪.\nقائمة الأسعار الكاملة: https://example.com/prices",
+        "en": "Prices start at 120 ILS.\nFull price list: https://example.com/prices"
+      }
+    },
+    {
+      "id": "delivery",
+      "keywords": {
+        "he": ["משלוח", "משלוחים", "שילוח", "מתי מגיע"],
+        "ar": ["توصيل", "شحن", "دليفري", "بتوصلوا"],
+        "en": ["delivery", "shipping", "deliver", "ship to"]
+      },
+      "reply": {
+        "he": "משלוח עד הבית תוך 2–3 ימי עסקים, 25 ₪.\nמעל 300 ₪ המשלוח חינם.",
+        "ar": "التوصيل للبيت خلال 2–3 أيام عمل مقابل 25 ₪.\nفوق 300 ₪ التوصيل مجاني.",
+        "en": "Home delivery in 2–3 business days for 25 ILS.\nFree over 300 ILS."
+      }
+    },
+    {
+      "id": "human",
+      "keywords": {
+        "he": ["נציג", "לדבר עם", "בן אדם", "מנהל", "שירות לקוחות"],
+        "ar": ["موظف", "بدي احكي", "انسان", "مدير", "خدمة الزبائن"],
+        "en": ["agent", "human", "representative", "talk to someone", "manager"]
+      },
+      "reply": {
+        "he": "אעביר את הפנייה לצוות — נציג יחזור אליכם כאן בהקדם 🙋\nאפשר גם להתקשר: +972-4-000-0000",
+        "ar": "بحوّل طلبك للفريق — حدا رح يرجعلك هون بأقرب وقت 🙋\nوبتقدر كمان تتصل: +972-4-000-0000",
+        "en": "I'll pass this to the team - someone will get back to you here shortly 🙋\nYou can also call: +972-4-000-0000"
+      }
+    },
+    {
+      "id": "thanks",
+      "weight": 0.6,
+      "keywords": {
+        "he": ["תודה", "תודה רבה", "מעולה"],
+        "ar": ["شكرا", "يسلمو", "مشكور", "تسلم"],
+        "en": ["thanks", "thank you", "cheers"]
+      },
+      "reply": {
+        "he": "בכיף! 🙏 יום נעים.",
+        "ar": "على الرحب والسعة! 🙏 نهارك سعيد.",
+        "en": "Anytime! 🙏 Have a good day."
+      }
+    }
+  ]
+}

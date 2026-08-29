@@ -1,0 +1,43 @@
+# One command to run the agent:
+#
+#     cp .env.example .env      # then fill in your Meta values
+#     docker compose up --build
+#
+# The webhook then listens on http://localhost:8000/webhook. Meta needs a public
+# HTTPS URL, so put this behind your reverse proxy, or use a tunnel while you
+# are still testing (see the README).
+
+services:
+  agent:
+    build: .
+    image: wa-agent-starter:1.0.0
+    container_name: wa-agent-starter
+    env_file:
+      - .env
+    ports:
+      # host:container. Change the LEFT number only, if 8000 is taken.
+      - "8000:8000"
+    restart: unless-stopped
+    # PID 1 that reaps children, so a crashed worker cannot leave zombies behind.
+    init: true
+    healthcheck:
+      # No curl in the slim image - Python is already here, so use it.
+      test:
+        - CMD
+        - python
+        - -c
+        - "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=3).status == 200 else 1)"
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    # The answer book is mounted read-only from the host, so editing faq.json
+    # and restarting the container is enough to change every reply. Remove this
+    # line if you would rather bake the file into the image.
+    volumes:
+      - ./faq.json:/app/faq.json:ro
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"

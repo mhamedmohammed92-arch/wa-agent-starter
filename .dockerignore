@@ -1,0 +1,28 @@
+# The Dockerfile ends with `COPY . .`, so anything not listed here is baked
+# into the image. A .env copied in would ship your live token inside every layer
+# of an image you might later push to a registry.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+.git
+.gitignore
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+README.md
+LICENSE
