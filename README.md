@@ -208,7 +208,7 @@ Price: **$149** for the full kit, **$499** for the agency licence. A launch pric
 of $99 applies for the first 30 days after release. One payment, no subscription;
 you self-host both, exactly like this starter.
 
-The link is in this repository's **About** section.
+**Get it:** https://tervatrix.com/wa-agent-kit/
 
 ## Licence
 
